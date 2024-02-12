@@ -2,7 +2,7 @@
 const express = require("express"); // Importing the Express framework and assigning it to the 'express' variable
 const app = express(); // Creating an instance of the Express application
 
-const port = 8083; // the server would listen to this port
+const port = 443; // the server would listen to this port (port 8083 for local, port 80 for HTTP or port 443 for HTTPS,)
 const path = require("path"); // Importing the 'path' module for working with file paths
 
 // DATABASE INTERACTIONS
