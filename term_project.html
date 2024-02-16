@@ -8,6 +8,9 @@
     <!--For favicon-->
     <link rel="icon" href="nt_logo.png">
 
+    <!--For linking Bootstrap CSS-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <!--For linking tailwind CSS-->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
@@ -15,26 +18,43 @@
     <link rel="stylesheet" href="term_project.css">
 
 </head>
+<br>
 
-<body class="bg-white font-sans leading-relaxed">
-    <div class="container mt-1 ml-5 mr-5">
+<body class="bg-white font-sans leading-relaxed"> <!-- tailwind CSS code-->
+    <div class="container mt-1 ml-5"> <!-- css and tailwind CSS code-->
         <img id="img1" src="nt_logo.png" height="120" width="152" style="border: none;">
         <br>
-        <h1 style="font-weight: bold;"><b>Neptune Technologies Summer Internship</b></h1>
+        <h1><b>Neptune Technologies Summer Internship</b></h1>
     </div>
+    <br>
     
-    <!-- Nav Bar for tabs -->
-    <nav class="nav-tabs" style="text-align:center;"> 
-        <button class="nav-link" id="about-us-tab" onclick="showTab('about-us')">About Us</button>
-        <button class="nav-link" id="about-role-tab" onclick="showTab('about-role')">About Role</button>
-        <button class="nav-link" id="apply-here-tab" onclick="showTab('apply-here')">Apply Here</button>
-    </nav>
+<!-- Bootstrap Nav Bar for tabs -->
+<nav class="navbar navbar-expand-lg navbar-light ml-5">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <button class="nav-link" onclick="showTab('about-us')">About Us</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" onclick="showTab('about-role')">About Role</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" onclick="showTab('apply-here')">Apply Here</button>
+            </li>
+        </ul>
+    </div>
+</nav>
+
     <br>
     
     <!-- Tab Content Sections -->
-    <div class="tab-content">
+    <div class="tab-content ml-5">
         <!-- Content for About Us -->
-        <div style="background: linear-gradient(to left, #cdd6e5, #fbffff, #cdd6e5);" id="about-us" style="display:none;" class="aboutUs-container">
+        <div id="about-us" style="display:none;" class="aboutUs-container">
+            <!-- About Us content -->
             <div>
                 <p style="text-align: justify;">**We welcome applicants from any remote US location**</p>
                 <p style="text-align: justify;">
@@ -59,10 +79,8 @@
         </div>
         
         <!-- Content for About Role -->
-        <div id="about-role" style="display:none; 
-        background: linear-gradient(to left, #cdd6e5, #fbffff, #cdd6e5);" 
-        class="aboutRole-container">
-
+        <div id="about-role" style="display:none;" class="aboutRole-container">
+            <!-- About Role content -->
             <div>
                 <h3>Role Summary</h3>
                 <p style="text-align: justify;">
@@ -158,9 +176,8 @@
         </div>
         
         <!-- Content for Apply Here -->
-        <div id="apply-here" style="display:none; 
-        background: linear-gradient(to left, #cdd6e5, #fbffff, #cdd6e5);" class="form-container">
-            
+        <div id="apply-here" style="display:none;" class="form-container">
+            <!-- Apply Here content -->
             <h2 style="font-weight: bold;">Software Engineer Intern - Full-Stack (Remote US, Summer 2024)</h2>
 
             <form id="applicationForm" action="/submit_application" method="POST" enctype="multipart/form-data">
@@ -355,7 +372,7 @@
                             <p style="color: grey;">(Put N/A for all if you are Currently Unemployed)</p>
                             <br>
     
-                            <label for="previous_employers">Previous Employers (if applicable):</label><br>
+                            <label for="previous_employers">Previous Employers (Put N/A if not applicable):</label><br>
                             <textarea id="previous_employers" name="previous_employers" rows="8" cols="65" placeholder="List Previous Employers, Job Titles, and Durations"></textarea><br><br>
                         </div>
                     </div>
@@ -375,18 +392,20 @@
     
                     <div>
                         <h3 style="color: #2557a7;">Skills and Certifications</h3>
+                        <p style="color: grey;">Put N/A if not applicable</p>
+                        <br>
                         <label for="skills">Skills:</label><br>
                         <textarea id="skills" name="skills" rows="8" cols="65" placeholder="List your skills, separated by commas" required=""></textarea><br><br>
     
-                        <label for="certs">Certifications (if applicable):</label><br>
-                        <textarea id="certs" name="certs" rows="8" cols="65" placeholder="List any relevant certifications you hold, separated by commas"></textarea>
+                        <label for="certs">Certifications:</label><br>
+                        <textarea id="certs" name="certs" rows="8" cols="65" placeholder="List any relevant certifications you hold, separated by commas" required=""></textarea>
                     </div>
                     <br><br>
     
                     <div>
                         <h3 style="color: #2557a7;">Professional References</h3>
-                        <label for="refs">List two or more professional references with their contact information (if applicable):</label><br>
-                        <textarea id="refs" name="refs" rows="8" cols="65" placeholder="List Name, Relationship to You, Phone Number, Email Address"></textarea>
+                        <label for="refs">List two or more professional references with their contact information:</label><br>
+                        <textarea id="refs" name="refs" rows="8" cols="65" placeholder="List Name, Relationship to You, Phone Number, Email Address" required=""></textarea>
                     </div>
                     <br><br>
     
@@ -435,6 +454,11 @@
     
         </div>
     </div>
+
+    <!-- Bootstrap JavaScript and jQuery (required for Bootstrap) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- JavaScript code -->
     <script src="term_project.js"></script>

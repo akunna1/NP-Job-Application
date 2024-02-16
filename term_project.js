@@ -1,33 +1,32 @@
-//Tab Switching
-// Function to show the specified tab and hide others
+// Tab Switching
 function showTab(tabId) {
-    // Hiding all tabs
+    // Hiding all tab content
     var tabs = document.querySelectorAll('.tab-content > div');
     tabs.forEach(function(tab) {
         tab.style.display = 'none';
     });
 
-    // Showing the selected tab
-    var selectedTab = document.getElementById(tabId);
-    selectedTab.style.display = 'block';
+    // Showing the selected tab content
+    var selectedTabContent = document.getElementById(tabId);
+    selectedTabContent.style.display = 'block';
 
     // Removing 'active' class from all nav links
-    var navLinks = document.querySelectorAll('.nav-tabs .nav-link');
+    var navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     navLinks.forEach(function(link) {
         link.classList.remove('active');
     });
 
     // Adding 'active' class to the clicked nav link
-    var clickedLink = document.getElementById(tabId + '-tab');
+    var clickedLink = document.querySelector('.navbar-nav [onclick="showTab(\'' + tabId + '\')"]');
     clickedLink.classList.add('active');
 
     // Storing the active tab ID in localStorage
     localStorage.setItem('activeTab', tabId);
 }
 
-// Set initial active tab to About Us and change its background color
+// Setting initial active tab and change its background color
 window.onload = function() {
-    // Get the ID of the active tab from localStorage
+    // Getting the ID of the active tab from localStorage
     var activeTab = localStorage.getItem('activeTab');
 
     // If there's an active tab stored, show it
@@ -37,7 +36,6 @@ window.onload = function() {
         showTab('about-us');
     }
 };
-
 
 // Current Enrollment Dropdown Menu
 function show_current_enrollment_Details() {
@@ -137,4 +135,5 @@ document.getElementById('fullname').addEventListener('input', checkFormValidity)
 
 // Initial form validation check
 checkFormValidity();
+
 
