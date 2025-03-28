@@ -1,0 +1,1 @@
+#### User fills in job application and attaches files for submission -->  user clicks submit  --> files and form data are sent to Google Cloud Storage Bucket --> Files are retrieved --> Files are run through evaluation code --> applicant recieves feedback
